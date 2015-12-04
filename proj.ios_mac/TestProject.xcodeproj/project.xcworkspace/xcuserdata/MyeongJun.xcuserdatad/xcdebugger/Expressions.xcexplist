@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "WorldManager::bulletCheck():WorldManager.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "bIt">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Bullet::getPos() const:Bullet.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "this-&gt;bulletRadius">
+            </PersistentString>
+            <PersistentString
+               value = "this-&gt;getPosition()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
