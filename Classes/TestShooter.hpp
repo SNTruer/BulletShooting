@@ -17,7 +17,7 @@
 class TestShooter : public Shooter
 {
 public:
-    TestShooter(const ShootInfo shootInfo);
+    TestShooter(const ShootInfo& shootInfo);
     
     virtual void shot();
 };

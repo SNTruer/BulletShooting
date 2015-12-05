@@ -9,7 +9,7 @@
 #include "EnemyBullet.hpp"
 #include "WorldManager.hpp"
 
-EnemyBullet::EnemyBullet(BulletInfo& bulletInfo)
+EnemyBullet::EnemyBullet(const BulletInfo& bulletInfo)
 : Bullet(bulletInfo)
 {
     auto bulletManager = WorldManager::getInstance()->getBulletManager();

@@ -16,7 +16,7 @@
 class TestEnemy : public Enemy
 {
 public:
-    TestEnemy(const EnemyInfo enemyInfo);
+    TestEnemy(const EnemyInfo& enemyInfo);
     
     void update(float dt);
     

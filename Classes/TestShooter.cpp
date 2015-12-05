@@ -9,7 +9,7 @@
 #include "TestShooter.hpp"
 #include "Shooter.hpp"
 
-TestShooter::TestShooter(const ShootInfo shootInfo)
+TestShooter::TestShooter(const ShootInfo& shootInfo)
 : Shooter(shootInfo)
 {
     shootCount = 100;

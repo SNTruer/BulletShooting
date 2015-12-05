@@ -11,11 +11,11 @@
 BulletManager::BulletManager(){
 }
 
-void BulletManager::addBulletPointer(Bullet* const &bulletPointer){
+void BulletManager::addBulletPointer(Bullet* const bulletPointer){
     bulletList.insert(bulletPointer);
 }
 
-void BulletManager::removeBulletPointer(Bullet* const &bulletPointer){
+void BulletManager::removeBulletPointer(Bullet* const bulletPointer){
     bulletPointer->remove();
     bulletList.erase(bulletPointer);
 }
@@ -24,6 +24,6 @@ size_t BulletManager::getSize(){
     return bulletList.size();
 }
 
-std::set<Bullet* const>* BulletManager::getBulletList(){
+std::set<Bullet* >* BulletManager::getBulletList(){
     return &bulletList;
 }

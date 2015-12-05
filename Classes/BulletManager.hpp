@@ -19,12 +19,12 @@ class BulletManager
 {
 public:
     BulletManager();
-    void addBulletPointer(Bullet* const &bulletPointer);
-    void removeBulletPointer(Bullet* const &bulletPointer);
-    std::set<Bullet* const>* getBulletList();
+    void addBulletPointer(Bullet* const bulletPointer);
+    void removeBulletPointer(Bullet* const bulletPointer);
+    std::set<Bullet* >* getBulletList();
     size_t getSize();
 private:
-    std::set<Bullet* const> bulletList;
+    std::set<Bullet* > bulletList;
 };
 
 #endif /* BulletManager_hpp */

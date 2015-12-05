@@ -18,7 +18,7 @@ USING_NS_CC;
 class EnemyBullet : public Bullet
 {
 public:
-    EnemyBullet(BulletInfo& bulletInfo);
+    EnemyBullet(const BulletInfo& bulletInfo);
     
     void update(float dt);
 };

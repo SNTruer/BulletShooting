@@ -16,7 +16,7 @@
 class Shooter : public Node
 {
 public:
-    Shooter(const ShootInfo shootInfo);
+    Shooter(const ShootInfo& shootInfo);
     
     virtual void shot() = 0;
     

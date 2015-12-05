@@ -15,13 +15,13 @@
 #include "Shooter.hpp"
 #include "TestShooter.hpp"
 
-typedef std::map<std::string, Shooter*(*)(ShootInfo) > ShooterMap;
+typedef std::map<std::string, Shooter*(*)(const ShootInfo&) > ShooterMap;
 
 class ShooterManager : public Node
 {
 private:
     template<typename T>
-    static Shooter* createInstance(ShootInfo shootInfo){
+    static Shooter* createInstance(const ShootInfo& shootInfo){
         return new T(shootInfo);
     }
     

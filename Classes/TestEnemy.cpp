@@ -8,7 +8,7 @@
 
 #include "TestEnemy.hpp"
 
-TestEnemy::TestEnemy(const EnemyInfo enemyInfo)
+TestEnemy::TestEnemy(const EnemyInfo& enemyInfo)
 : Enemy(enemyInfo)
 {
     this->setPosition(enemyInfo.pos);

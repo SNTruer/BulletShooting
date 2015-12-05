@@ -8,7 +8,7 @@
 
 #include "Shooter.hpp"
 
-Shooter::Shooter(const ShootInfo shootInfo)
+Shooter::Shooter(const ShootInfo& shootInfo)
 {
     this->pos = shootInfo.pos;
     this->shootCount = shootInfo.shootCount;

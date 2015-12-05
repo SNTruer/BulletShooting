@@ -14,13 +14,13 @@
 #include "Enemy.h"
 #include "TestEnemy.hpp"
 
-typedef std::map<std::string, Enemy*(*)(EnemyInfo) > EnemyMap;
+typedef std::map<std::string, Enemy*(*)(const EnemyInfo&) > EnemyMap;
 
 class EnemyManager : public Node
 {
 private:
     template<typename T>
-    static Enemy* createInstance(EnemyInfo shootInfo){
+    static Enemy* createInstance(const EnemyInfo& shootInfo){
         return new T(shootInfo);
     }
     
