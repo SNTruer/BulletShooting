@@ -14,6 +14,7 @@
 #include "Global.h"
 #include "Bullet.h"
 #include "BulletManager.hpp"
+#include "EnemyManager.hpp"
 
 USING_NS_CC;
 USING_NS_CC_MATH;
@@ -24,6 +25,7 @@ public:
     void setPlayer(Player*& player);
     BulletManager* getBulletManager();
     BulletManager* getPlayerBulletManager();
+	EnemyManager* getEnemyManager();
     virtual void update(float dt);
     
     static WorldManager* getInstance(){
@@ -33,19 +35,25 @@ public:
     };
 private:
     WorldManager();
-    WorldManager(Player*& player);
+	~WorldManager();
     
     static WorldManager* singleton;
     
     BulletManager* bulletManager;
     BulletManager* playerBulletManager;
+	EnemyManager* enemyManager;
     Player* player;
+
     void collisionPlayer();
+	bool collisionEnemy(Enemy* enemy, float damage);
+
     void bulletCheck();
+	void enemyCheck();
     
     //void bulletWorldOut();
     inline bool posCheck(const Vec2 bulletPos);
     inline bool colCheck(const Vec2 playerPos, const Vec2 bulletPos, const float bulletRadius);
+	inline bool colCheck(const Vec2 aPos, const float aColBoxRadius, const Vec2 bPos, const float bColBoxRadius);
     
     unsigned int playerLifeCount;
     unsigned int playerBombCount;

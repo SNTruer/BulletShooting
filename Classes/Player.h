@@ -10,7 +10,8 @@
 #define __TestProject__Player__
 
 #include <stdio.h>
-
+#include "Global.h"
+#include "PlayerBullet.hpp"
 
 USING_NS_CC;
 
@@ -32,6 +33,7 @@ public:
     void invincibleStart();
     void invincibleEnd(float dt);
     bool getInvincibleFlag() const;
+	void setInvincibleFlag(bool flag);
     
     void getDamage();
     void rebornReserve(float intervalSeconds);
@@ -46,6 +48,8 @@ private:
     
     bool aliveFlag;
     bool invincibleFlag;
+
+	float colBoxRadius;
     
     void _reborn(float t);
     void shot();

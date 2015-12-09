@@ -59,3 +59,8 @@ float Bullet::getBulletRadius() const
 {
     return bulletRadius;
 }
+
+float Bullet::getDamageParameter() const
+{
+	return damage;
+}

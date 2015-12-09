@@ -7,8 +7,6 @@
 //
 
 #include "Player.h"
-#include "Global.h"
-#include "PlayerBullet.hpp"
 #define COCOS2D_DEBUG 1
 
 Player::Player(Vec2 pos){
@@ -23,6 +21,8 @@ Player::Player(Vec2 pos){
     
     playerSprite = Sprite::create("testbox.png");
     playerSprite->setScale(playerSizeWidth / playerSprite->getContentSize().width, playerSizeHeight / playerSprite->getContentSize().height);
+
+	colBoxRadius = PLAYER_COL_BOX_RADIUS;
     
     this->setPosition(pos);
     
@@ -36,6 +36,7 @@ Player::Player(Vec2 pos){
     this->schedule(schedule_selector(Player::update));
     
     setAliveFlag(true);
+	setInvincibleFlag(false);
 }
 
 void Player::update(float dt)
@@ -171,6 +172,11 @@ void Player::invincibleStart()
 bool Player::getInvincibleFlag() const
 {
     return invincibleFlag;
+}
+
+void Player::setInvincibleFlag(bool flag)
+{
+	invincibleFlag = flag;
 }
 
 void Player::_reborn(float t)

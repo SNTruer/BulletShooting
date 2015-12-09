@@ -15,16 +15,17 @@ WorldManager* WorldManager::singleton = NULL;
 WorldManager::WorldManager(){
     bulletManager = new BulletManager();
     playerBulletManager = new BulletManager();
-    
+	enemyManager = new EnemyManager();
     
     this->schedule(schedule_selector(WorldManager::update));
 }
 
-WorldManager::WorldManager(Player*& player){
-    bulletManager = new BulletManager();
-    this->player = player;
-    
-    this->schedule(schedule_selector(WorldManager::update));
+WorldManager::~WorldManager() {
+	delete bulletManager;
+	delete playerBulletManager;
+	delete enemyManager;
+
+	this->unschedule(schedule_selector(WorldManager::update));
 }
 
 void WorldManager::setPlayer(Player*& player){
@@ -40,9 +41,15 @@ BulletManager* WorldManager::getPlayerBulletManager()
     return playerBulletManager;
 }
 
+EnemyManager* WorldManager::getEnemyManager()
+{
+	return enemyManager;
+}
+
 void WorldManager::update(float dt)
 {
     bulletCheck();
+	enemyCheck();
 }
 
 bool WorldManager::posCheck(const Vec2 bulletPos)
@@ -52,7 +59,29 @@ bool WorldManager::posCheck(const Vec2 bulletPos)
 
 bool WorldManager::colCheck(const Vec2 playerPos,const Vec2 bulletPos, const float bulletRadius)
 {
-    return ((playerPos.x - bulletPos.x)*(playerPos.x - bulletPos.x) + (playerPos.y - bulletPos.y)*(playerPos.y - bulletPos.y) < (colBoxRadius + bulletRadius)*(colBoxRadius + bulletRadius)) ? true : false;
+    return ((playerPos.x - bulletPos.x)*(playerPos.x - bulletPos.x) + (playerPos.y - bulletPos.y)*(playerPos.y - bulletPos.y) < (PLAYER_COL_BOX_RADIUS + bulletRadius)*(PLAYER_COL_BOX_RADIUS + bulletRadius)) ? true : false;
+}
+
+bool WorldManager::colCheck(const Vec2 aPos, const float aColBoxRadius, const Vec2 bPos, const float bColBoxRadius)
+{
+	return ((aPos.x - bPos.x)*(aPos.x - bPos.x) + (aPos.y - bPos.y)*(aPos.y - bPos.y) <
+		(aColBoxRadius + bColBoxRadius)*(aColBoxRadius + bColBoxRadius)) ? true : false;
+}
+
+void WorldManager::enemyCheck()
+{
+	auto enemyList = enemyManager->getEnemyList();
+
+	for (auto eIt = enemyList->begin(); eIt != enemyList->end();) {
+		auto enemyPos = (*eIt)->getPosition();
+		auto enemyColRadius = (*eIt)->getColRadius();
+
+		if (player != NULL && colCheck(player->getPos(), enemyPos, enemyColRadius)) {
+			collisionPlayer();
+		}
+
+		eIt++;
+	}
 }
 
 void WorldManager::bulletCheck()
@@ -79,6 +108,7 @@ void WorldManager::bulletCheck()
     }
     
     auto playerBulletList = playerBulletManager->getBulletList();
+	auto enemyList = enemyManager->getEnemyList();
     
     for(auto bIt = playerBulletList->begin(); bIt != playerBulletList->end();){
         auto bulletPos = (*bIt)->getPos();
@@ -92,6 +122,15 @@ void WorldManager::bulletCheck()
         if(*bIt==NULL) break;
         
         //bulletCollision with enemy event
+		for (auto eIt = enemyList->begin(); eIt != enemyList->end();) {
+			auto enemyPos = (*eIt)->getPosition();
+			auto enemyColRadius = (*eIt)->getColRadius();
+
+			if (colCheck(bulletPos,bulletRadius, enemyPos, enemyColRadius)) {
+				if(collisionEnemy(*(eIt++), (*bIt)->getDamageParameter())) continue;
+			}
+			else eIt++;
+		}
         
         if(*bIt==NULL) break;
         bIt++;
@@ -112,6 +151,19 @@ void WorldManager::collisionPlayer()
     
     if(playerLifeCount>0) player->rebornReserve(rebornIntervalSeconds);
     else gameOver();
+}
+
+bool WorldManager::collisionEnemy(Enemy* enemy, float damage)
+{
+	enemy->getDamage(damage);
+
+	if (enemy->getHp() < 0)
+	{
+		enemyManager->removeEnemyPointer(enemy);
+		return true;
+	}
+
+	return false;
 }
 
 void WorldManager::gameOver()

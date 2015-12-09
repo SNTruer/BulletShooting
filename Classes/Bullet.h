@@ -28,11 +28,11 @@ public:
     void remove();
     
     float getBulletRadius() const;
+	float getDamageParameter() const;
     
 protected:
     virtual void move();
 
-private:
     Sprite *bulletSprite;
     
     float angle;
@@ -44,6 +44,8 @@ private:
     float speedRate;
     
     float bulletRadius;
+
+	float damage;
 };
 
 #endif /* defined(__TestProject__Bullet__) */

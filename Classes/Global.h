@@ -34,7 +34,7 @@ const float slowMoveSpeed = 2;
 const size_t resolutionWidth = designResolutionSize.width;
 const size_t resolutionHeight = designResolutionSize.height;
 
-const float colBoxRadius = 2.5f;
+const float PLAYER_COL_BOX_RADIUS = 2.5f;
 const float playerSizeWidth = 20.0f;
 const float playerSizeHeight = 30.0f;
 
@@ -43,10 +43,11 @@ const float normalBulletRadius = 5.0f;
 const float rebornIntervalSeconds = 1.5f;
 const float rebornInvincibleTimeSeconds = 3.0f;
 
-const std::string GRAYCIRCLE = "graycircle.png";
-const std::string TEST_ENEMY_SPRITE = "HelloWorld.png";
-
 const std::string TEST_ENEMY = "TEST_ENEMY";
+const std::string TEST_ENEMY_SPRITE = "HelloWorld.png";
+const float TEST_ENEMY_COL_RADIUS = 15;
+
+const std::string GRAYCIRCLE = "graycircle.png";
 const std::string DEFAULT_SHOOTER = "DEFAULT_SHOOTER";
 const std::string TEST_SHOOTER = "TEST_SHOOTER";
 

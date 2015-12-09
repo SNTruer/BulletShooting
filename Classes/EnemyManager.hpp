@@ -32,10 +32,21 @@ private:
         
         return map;
     };
+
+	std::set<Enemy* > enemyList;
     
 public:
+
+	~EnemyManager();
     
     static const EnemyMap enemyMap;
+
+	size_t getSize() const;
+
+	std::set<Enemy*>* getEnemyList();
+
+	void addEnemyPointer(Enemy* const enemyPointer);
+	void removeEnemyPointer(Enemy* const enemyPointer);
 };
 
 

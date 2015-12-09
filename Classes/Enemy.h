@@ -21,10 +21,18 @@ public:
     Enemy(const EnemyInfo enemyInfo);
     
     virtual void move() = 0;
+
+	virtual void getDamage(float damage);
+
+	void remove();
+
+	float getColRadius() const;
+	float getHp() const;
     
 protected:
     
-    int hp;
+    float hp;
+	float colRadius;
     Sprite* sprite;
     Shooter* shooter;
 };

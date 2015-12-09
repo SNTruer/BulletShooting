@@ -12,7 +12,8 @@ TestEnemy::TestEnemy(const EnemyInfo& enemyInfo)
 : Enemy(enemyInfo)
 {
     this->setPosition(enemyInfo.pos);
-    this->sprite->setScale(15 / this->sprite->getContentSize().width, 10 / this->sprite->getContentSize().height);
+    this->sprite->setScale(30 / this->sprite->getContentSize().width, 30 / this->sprite->getContentSize().height);
+	this->colRadius = TEST_ENEMY_COL_RADIUS;
     
     this->schedule(schedule_selector(TestEnemy::update));
 }
@@ -20,6 +21,11 @@ TestEnemy::TestEnemy(const EnemyInfo& enemyInfo)
 void TestEnemy::update(float dt)
 {
     shooter->shot();
+}
+
+void TestEnemy::getDamage(float damage)
+{
+	Enemy::getDamage(damage);
 }
 
 void TestEnemy::move()

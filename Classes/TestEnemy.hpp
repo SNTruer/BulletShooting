@@ -21,6 +21,8 @@ public:
     void update(float dt);
     
     virtual void move();
+
+	virtual void getDamage(float damage);
 };
 
 #endif /* TestEnemy_hpp */

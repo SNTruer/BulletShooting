@@ -7,6 +7,7 @@
 //
 
 #include "Enemy.h"
+#include "WorldManager.hpp"
 
 Enemy::Enemy(const EnemyInfo enemyInfo)
 {
@@ -16,4 +17,27 @@ Enemy::Enemy(const EnemyInfo enemyInfo)
     
     this->addChild(sprite);
     this->addChild(shooter);
+
+	WorldManager::getInstance()->getEnemyManager()->addEnemyPointer(this);
+}
+
+void Enemy::getDamage(float damage)
+{
+	hp -= damage;
+}
+
+void Enemy::remove()
+{
+	removeFromParent();
+	release();
+}
+
+float Enemy::getColRadius() const
+{
+	return colRadius;
+}
+
+float Enemy::getHp() const
+{
+	return hp;
 }

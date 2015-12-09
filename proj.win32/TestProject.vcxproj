@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -96,7 +96,8 @@
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command></Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup>
@@ -108,7 +109,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       <Inputs>$(TargetFileName)</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
@@ -139,17 +139,51 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command></Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Bullet.cpp" />
+    <ClCompile Include="..\Classes\BulletInfo.cpp" />
+    <ClCompile Include="..\Classes\BulletManager.cpp" />
+    <ClCompile Include="..\Classes\Enemy.cpp" />
+    <ClCompile Include="..\Classes\EnemyBullet.cpp" />
+    <ClCompile Include="..\Classes\EnemyInfo.cpp" />
+    <ClCompile Include="..\Classes\EnemyManager.cpp" />
+    <ClCompile Include="..\Classes\FirstScene.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\Player.cpp" />
+    <ClCompile Include="..\Classes\PlayerBullet.cpp" />
+    <ClCompile Include="..\Classes\Shooter.cpp" />
+    <ClCompile Include="..\Classes\ShooterManager.cpp" />
+    <ClCompile Include="..\Classes\ShootInfo.cpp" />
+    <ClCompile Include="..\Classes\TestEnemy.cpp" />
+    <ClCompile Include="..\Classes\TestShooter.cpp" />
+    <ClCompile Include="..\Classes\WorldManager.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\Bullet.h" />
+    <ClInclude Include="..\Classes\BulletInfo.hpp" />
+    <ClInclude Include="..\Classes\BulletManager.hpp" />
+    <ClInclude Include="..\Classes\Enemy.h" />
+    <ClInclude Include="..\Classes\EnemyBullet.hpp" />
+    <ClInclude Include="..\Classes\EnemyInfo.hpp" />
+    <ClInclude Include="..\Classes\EnemyManager.hpp" />
+    <ClInclude Include="..\Classes\FirstScene.h" />
+    <ClInclude Include="..\Classes\Global.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\Player.h" />
+    <ClInclude Include="..\Classes\PlayerBullet.hpp" />
+    <ClInclude Include="..\Classes\Shooter.hpp" />
+    <ClInclude Include="..\Classes\ShooterManager.hpp" />
+    <ClInclude Include="..\Classes\ShootInfo.hpp" />
+    <ClInclude Include="..\Classes\TestEnemy.hpp" />
+    <ClInclude Include="..\Classes\TestShooter.hpp" />
+    <ClInclude Include="..\Classes\WorldManager.hpp" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
