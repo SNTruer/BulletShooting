@@ -15,6 +15,8 @@ PlayerBullet::PlayerBullet(const BulletInfo& bulletInfo)
     auto playerBulletManager = WorldManager::getInstance()->getPlayerBulletManager();
     playerBulletManager->addBulletPointer(this);
 	this->damage = 1.0f;
+
+	this->setIsPierce(false);
     
     this->schedule(schedule_selector(PlayerBullet::update));
 }

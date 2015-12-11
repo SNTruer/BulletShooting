@@ -49,6 +49,11 @@ bool FirstScene::init()
 /*    player = Sprite::create("testbox.png");
     player->setScale(100 / player->getContentSize().width, 100 / player->getContentSize().height);
     player->setPosition(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y);*/
+
+	auto background = Sprite::create("space.jpg");
+	background->setScale(resolutionWidth / background->getContentSize().width, resolutionHeight / background->getContentSize().height);
+	background->setPosition(resolutionWidth / 2, resolutionHeight / 2);
+	this->addChild(background);
     
     auto player = new Player(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     
@@ -64,7 +69,7 @@ bool FirstScene::init()
     ShootInfo shootInfo(160, 400, 100);
     auto shooter = ShooterManager::shooterMap.at(TEST_SHOOTER)(shootInfo);
     
-    EnemyInfo enemyInfo(10, 160, 400, TEST_ENEMY_SPRITE, shooter);
+    EnemyInfo enemyInfo(100, 160, 400, TEST_ENEMY_SPRITE, shooter);
     auto enemy = EnemyManager::enemyMap.at(TEST_ENEMY)(enemyInfo);
     
     this->addChild(enemy);

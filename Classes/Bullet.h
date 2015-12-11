@@ -29,7 +29,16 @@ public:
     
     float getBulletRadius() const;
 	float getDamageParameter() const;
-    
+
+	inline void setIsPierce(bool flag)
+	{
+		isPierce = flag;
+	};
+	inline bool getIsPierce() const
+	{
+		return isPierce;
+	};
+
 protected:
     virtual void move();
 
@@ -46,6 +55,8 @@ protected:
     float bulletRadius;
 
 	float damage;
+
+	bool isPierce;
 };
 
 #endif /* defined(__TestProject__Bullet__) */

@@ -122,18 +122,24 @@ void WorldManager::bulletCheck()
         if(*bIt==NULL) break;
         
         //bulletCollision with enemy event
+		bool bItPlusFlag = true;
 		for (auto eIt = enemyList->begin(); eIt != enemyList->end();) {
 			auto enemyPos = (*eIt)->getPosition();
 			auto enemyColRadius = (*eIt)->getColRadius();
 
 			if (colCheck(bulletPos,bulletRadius, enemyPos, enemyColRadius)) {
-				if(collisionEnemy(*(eIt++), (*bIt)->getDamageParameter())) continue;
+					collisionEnemy(*(eIt++), (*bIt)->getDamageParameter());
+					if (!(*bIt)->getIsPierce())
+					{
+						playerBulletManager->removeBulletPointer((*bIt++));
+						bItPlusFlag = false;
+						break;
+					}
 			}
 			else eIt++;
 		}
         
-        if(*bIt==NULL) break;
-        bIt++;
+        if(bItPlusFlag) bIt++;
     }
 }
 
