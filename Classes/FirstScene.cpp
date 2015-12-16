@@ -15,6 +15,7 @@
 #include "TestShooter.hpp"
 #include "EnemyManager.hpp"
 #include "SimpleAudioEngine.h"
+#define COCOS2D_DEBUG 1
 
 Scene* FirstScene::createScene()
 {
@@ -51,10 +52,15 @@ bool FirstScene::init()
     player->setScale(100 / player->getContentSize().width, 100 / player->getContentSize().height);
     player->setPosition(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y);*/
 
-	auto background = Sprite::create("space.jpg");
-	background->setScale(resolutionWidth / background->getContentSize().width, resolutionHeight / background->getContentSize().height);
-	background->setPosition(resolutionWidth / 2, resolutionHeight / 2);
-	this->addChild(background);
+	background1 = Sprite::create("space.jpg");
+	background1->setScale(resolutionWidth / background1->getContentSize().width, resolutionHeight / background1->getContentSize().height);
+	background1->setPosition(resolutionWidth / 2, resolutionHeight / 2);
+	this->addChild(background1);
+
+	background2 = Sprite::create("space.jpg");
+	background2->setScale(resolutionWidth / background2->getContentSize().width, resolutionHeight / background2->getContentSize().height);
+	background2->setPosition(resolutionWidth / 2, resolutionHeight / 2 + resolutionHeight);
+	this->addChild(background2);
     
     auto player = new Player(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     
@@ -104,8 +110,19 @@ void FirstScene::update(float dt)
         this->addChild(bullet);
 
         angle+=0.02f;
-        log("hey");
     }
+
+	backgroundMove();
+}
+
+void FirstScene::backgroundMove()
+{
+	background1->setPositionY(background1->getPositionY() - 1);
+	auto pos = background1->getPosition();
+	if (background1->getPositionY() <= (-(float)resolutionHeight/2) )background1->setPositionY(resolutionHeight*1.5);
+	background2->setPositionY(background2->getPositionY() - 1);
+	if (background2->getPositionY() <= (-(float)resolutionHeight/2)) background2->setPositionY(resolutionHeight*1.5);
+	CCLOG("hey");
 }
 
 void FirstScene::onKeyPressed(EventKeyboard::KeyCode keyCode, cocos2d::Event *event)

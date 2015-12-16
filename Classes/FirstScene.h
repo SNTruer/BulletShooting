@@ -39,5 +39,10 @@ private:
     float angleRate;
     float speed;
     int sw;
+
+	Sprite* background1;
+	Sprite* background2;
+
+	void backgroundMove();
 };
 #endif /* defined(__TestProject__FirstScene__) */
