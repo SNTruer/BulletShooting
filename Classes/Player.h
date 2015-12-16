@@ -52,8 +52,10 @@ private:
 	float colBoxRadius;
     
     void _reborn(float t);
+
     void shot();
     void move();
+	void spriteChange();
 };
 
 #endif /* defined(__TestProject__Player__) */

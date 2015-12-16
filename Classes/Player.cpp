@@ -43,6 +43,7 @@ void Player::update(float dt)
 {
     move();
     shot();
+	spriteChange();
 }
 
 void Player::move()
@@ -101,6 +102,15 @@ void Player::shot()
     
     Director::getInstance()->getRunningScene()->addChild(playerBullet);
     Director::getInstance()->getRunningScene()->addChild(playerBullet2);
+}
+
+void Player::spriteChange()
+{
+	if (getInvincibleFlag())
+	{
+		this->playerSprite->setOpacity(255 - this->playerSprite->getOpacity());
+		this->colBoxSprite->setOpacity(255 - this->colBoxSprite->getOpacity());
+	}
 }
 
 void Player::onKeyPressed(EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
@@ -162,6 +172,9 @@ void Player::rebornReserve(float intervalSeconds)
 void Player::invincibleEnd(float dt)
 {
     invincibleFlag = false;
+
+	this->playerSprite->setOpacity(255);
+	this->colBoxSprite->setOpacity(255);
 }
 
 void Player::invincibleStart()
@@ -185,8 +198,8 @@ void Player::_reborn(float t)
     invincibleStart();
     
     this->scheduleOnce(schedule_selector(Player::invincibleEnd), rebornInvincibleTimeSeconds);
-    this->playerSprite->setOpacity(255);
-    this->colBoxSprite->setOpacity(255);
+    this->playerSprite->setOpacity(128);
+    this->colBoxSprite->setOpacity(128);
     
     this->setPosition(resolutionWidth/2, 15);
 }

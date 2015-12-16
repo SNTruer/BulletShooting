@@ -14,6 +14,7 @@
 #include "ShooterManager.hpp"
 #include "TestShooter.hpp"
 #include "EnemyManager.hpp"
+#include "SimpleAudioEngine.h"
 
 Scene* FirstScene::createScene()
 {
@@ -73,7 +74,9 @@ bool FirstScene::init()
     auto enemy = EnemyManager::enemyMap.at(TEST_ENEMY)(enemyInfo);
     
     this->addChild(enemy);
-    
+
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("BGM.mp3", true);
+
     //EnemyInfo enemyInfo(10, 160, 400);
 
     return true;
