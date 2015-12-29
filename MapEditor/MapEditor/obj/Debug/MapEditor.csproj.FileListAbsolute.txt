@@ -1,0 +1,9 @@
+E:\MINE\Source\BulletShooting\MapEditor\MapEditor\bin\Debug\MapEditor.exe.config
+E:\MINE\Source\BulletShooting\MapEditor\MapEditor\bin\Debug\MapEditor.exe
+E:\MINE\Source\BulletShooting\MapEditor\MapEditor\bin\Debug\MapEditor.pdb
+E:\MINE\Source\BulletShooting\MapEditor\MapEditor\obj\Debug\MapEditor.csprojResolveAssemblyReference.cache
+E:\MINE\Source\BulletShooting\MapEditor\MapEditor\obj\Debug\MapEditor.Form1.resources
+E:\MINE\Source\BulletShooting\MapEditor\MapEditor\obj\Debug\MapEditor.Properties.Resources.resources
+E:\MINE\Source\BulletShooting\MapEditor\MapEditor\obj\Debug\MapEditor.csproj.GenerateResource.Cache
+E:\MINE\Source\BulletShooting\MapEditor\MapEditor\obj\Debug\MapEditor.exe
+E:\MINE\Source\BulletShooting\MapEditor\MapEditor\obj\Debug\MapEditor.pdb

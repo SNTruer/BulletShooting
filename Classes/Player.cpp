@@ -73,8 +73,8 @@ void Player::move()
     
     if(xSpeed != 0 && ySpeed != 0){xSpeed /= sqrt(2); ySpeed /= sqrt(2);}
     
-    pos.x += xSpeed;
-    pos.y += ySpeed;
+    if(pos.x + xSpeed > 0 && pos.x + xSpeed < designResolutionSize.width) pos.x += xSpeed;
+    if(pos.y + ySpeed > 0 && pos.y + ySpeed < designResolutionSize.height) pos.y += ySpeed;
     
     this->setPosition(pos);
 }

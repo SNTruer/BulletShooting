@@ -23,7 +23,7 @@ const EventKeyboard::KeyCode SHIFT = EventKeyboard::KeyCode::KEY_SHIFT;
 const EventKeyboard::KeyCode Z = EventKeyboard::KeyCode::KEY_Z;
 const EventKeyboard::KeyCode X = EventKeyboard::KeyCode::KEY_X;
 
-const cocos2d::Size designResolutionSize = cocos2d::Size(320, 480);
+const cocos2d::Size designResolutionSize = cocos2d::Size(600, 800);
 const cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
 const cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 const cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
