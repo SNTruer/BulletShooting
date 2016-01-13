@@ -42,6 +42,7 @@ namespace MapEditor
 
             initEnemy();
             initShooter();
+            Enemy.activeFormInit(enemyPanel);
         }
 
         private void initEnemy()
@@ -59,10 +60,20 @@ namespace MapEditor
         {
             shooterList.MultiSelect = false;
 
-            ListViewItem item = new ListViewItem();
+            ListViewItem item;
+            item = new ListViewItem();
             item.ImageIndex = 0;
             item.Text = "TEST_SHOOTER";
             shooterList.Items.Add(item);
+        }
+
+        private void initRoute()
+        {
+            ListViewItem item;
+            item = new ListViewItem();
+            item.ImageIndex = 0;
+            item.Text = "STRAIGHT";
+           // routeList.Items.Add(item);
         }
 
         private void enemyAddButton_Click(object sender, EventArgs e)
@@ -79,6 +90,16 @@ namespace MapEditor
 
         private void enemyPanel_Paint(object sender, PaintEventArgs e)
         {
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void statusChangeButton_Click(object sender, EventArgs e)
+        {
+            Enemy.statusChange(statusLabelPanel, changePanel);
         }
 
         private void Form1_Load(object sender, EventArgs e)

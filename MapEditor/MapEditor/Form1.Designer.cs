@@ -34,8 +34,19 @@
             this.enemyList = new System.Windows.Forms.ListView();
             this.shooterList = new System.Windows.Forms.ListView();
             this.enemyAddButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.statusLabelPanel = new System.Windows.Forms.Panel();
+            this.hpLabel = new System.Windows.Forms.Label();
+            this.changePanel = new System.Windows.Forms.Panel();
+            this.hp = new System.Windows.Forms.NumericUpDown();
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusChangeButton = new System.Windows.Forms.Button();
             this.stagePanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.statusLabelPanel.SuspendLayout();
+            this.changePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,23 +89,86 @@
             // 
             // enemyAddButton
             // 
-            this.enemyAddButton.Location = new System.Drawing.Point(1312, 455);
+            this.enemyAddButton.Location = new System.Drawing.Point(1322, 818);
             this.enemyAddButton.Name = "enemyAddButton";
-            this.enemyAddButton.Size = new System.Drawing.Size(133, 36);
+            this.enemyAddButton.Size = new System.Drawing.Size(123, 31);
             this.enemyAddButton.TabIndex = 4;
             this.enemyAddButton.Text = "Enemy Add";
             this.enemyAddButton.UseVisualStyleBackColor = true;
             this.enemyAddButton.Click += new System.EventHandler(this.enemyAddButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "HP :";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(679, 458);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(39, 143);
+            this.panel1.TabIndex = 6;
+            // 
+            // statusLabelPanel
+            // 
+            this.statusLabelPanel.Controls.Add(this.hpLabel);
+            this.statusLabelPanel.Location = new System.Drawing.Point(739, 458);
+            this.statusLabelPanel.Name = "statusLabelPanel";
+            this.statusLabelPanel.Size = new System.Drawing.Size(52, 143);
+            this.statusLabelPanel.TabIndex = 7;
+            // 
+            // hpLabel
+            // 
+            this.hpLabel.AutoSize = true;
+            this.hpLabel.Location = new System.Drawing.Point(3, 35);
+            this.hpLabel.Name = "hpLabel";
+            this.hpLabel.Size = new System.Drawing.Size(11, 12);
+            this.hpLabel.TabIndex = 6;
+            this.hpLabel.Text = "0";
+            // 
+            // changePanel
+            // 
+            this.changePanel.Controls.Add(this.hp);
+            this.changePanel.Location = new System.Drawing.Point(806, 458);
+            this.changePanel.Name = "changePanel";
+            this.changePanel.Size = new System.Drawing.Size(137, 143);
+            this.changePanel.TabIndex = 8;
+            // 
+            // hp
+            // 
+            this.hp.Location = new System.Drawing.Point(3, 33);
+            this.hp.Name = "hp";
+            this.hp.Size = new System.Drawing.Size(120, 21);
+            this.hp.TabIndex = 1;
+            // 
             // form1BindingSource
             // 
             this.form1BindingSource.DataSource = typeof(MapEditor.Form1);
+            // 
+            // statusChangeButton
+            // 
+            this.statusChangeButton.Location = new System.Drawing.Point(840, 627);
+            this.statusChangeButton.Name = "statusChangeButton";
+            this.statusChangeButton.Size = new System.Drawing.Size(103, 23);
+            this.statusChangeButton.TabIndex = 9;
+            this.statusChangeButton.Text = "statusChange";
+            this.statusChangeButton.UseVisualStyleBackColor = true;
+            this.statusChangeButton.Click += new System.EventHandler(this.statusChangeButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1486, 861);
+            this.Controls.Add(this.statusChangeButton);
+            this.Controls.Add(this.changePanel);
+            this.Controls.Add(this.statusLabelPanel);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.enemyAddButton);
             this.Controls.Add(this.shooterList);
             this.Controls.Add(this.enemyList);
@@ -103,6 +177,12 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.stagePanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.statusLabelPanel.ResumeLayout(false);
+            this.statusLabelPanel.PerformLayout();
+            this.changePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.hp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -115,6 +195,13 @@
         private System.Windows.Forms.ListView shooterList;
         private System.Windows.Forms.Button enemyAddButton;
         private System.Windows.Forms.Panel enemyPanel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label hpLabel;
+        private System.Windows.Forms.Panel changePanel;
+        private System.Windows.Forms.NumericUpDown hp;
+        private System.Windows.Forms.Panel statusLabelPanel;
+        private System.Windows.Forms.Button statusChangeButton;
     }
 }
 
