@@ -26,6 +26,7 @@ namespace MapEditor
         public int hp;
         Image orgImage;
         Image cursoredImage;
+        int routeCount = 0;
 
         public Enemy(Image image, String enemyText, String shooterText, Point location)
         {
@@ -94,6 +95,7 @@ namespace MapEditor
                 var prevRoutePoints = enemyRoutePoints[nowEnemy];
                 foreach (EnemyRoutePoint item in prevRoutePoints)
                 {
+                    item.Hide();
                 }
             }
 
@@ -114,6 +116,7 @@ namespace MapEditor
             var nowRoutePoints = enemyRoutePoints[nowEnemy];
             foreach (EnemyRoutePoint item in nowRoutePoints)
             {
+                item.Show();
             }
 
             nowEnemy.Image = nowEnemy.cursoredImage;
@@ -142,6 +145,20 @@ namespace MapEditor
         private void enemyMouseUp(object sender, MouseEventArgs e)
         {
             isDrag = false;
+        }
+
+        public int getRouteCount()
+        {
+            return routeCount;
+        }
+
+        static public void nowEnemyAddRoutePoint(Panel panel)
+        {
+            EnemyRoutePoint newRoutePoint = new EnemyRoutePoint(nowEnemy);
+            var nowEnemyRoutePointList = enemyRoutePoints[nowEnemy];
+            
+            nowEnemyRoutePointList.Add(newRoutePoint);
+            panel.Controls.Add(newRoutePoint);
         }
     }
 }

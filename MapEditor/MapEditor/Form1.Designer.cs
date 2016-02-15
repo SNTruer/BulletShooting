@@ -40,8 +40,9 @@
             this.hpLabel = new System.Windows.Forms.Label();
             this.changePanel = new System.Windows.Forms.Panel();
             this.hp = new System.Windows.Forms.NumericUpDown();
-            this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusChangeButton = new System.Windows.Forms.Button();
+            this.addRouteButton = new System.Windows.Forms.Button();
+            this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stagePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.statusLabelPanel.SuspendLayout();
@@ -146,10 +147,6 @@
             this.hp.Size = new System.Drawing.Size(120, 21);
             this.hp.TabIndex = 1;
             // 
-            // form1BindingSource
-            // 
-            this.form1BindingSource.DataSource = typeof(MapEditor.Form1);
-            // 
             // statusChangeButton
             // 
             this.statusChangeButton.Location = new System.Drawing.Point(840, 627);
@@ -160,11 +157,26 @@
             this.statusChangeButton.UseVisualStyleBackColor = true;
             this.statusChangeButton.Click += new System.EventHandler(this.statusChangeButton_Click);
             // 
+            // addRouteButton
+            // 
+            this.addRouteButton.Location = new System.Drawing.Point(694, 627);
+            this.addRouteButton.Name = "addRouteButton";
+            this.addRouteButton.Size = new System.Drawing.Size(131, 23);
+            this.addRouteButton.TabIndex = 10;
+            this.addRouteButton.Text = "Add Route Button";
+            this.addRouteButton.UseVisualStyleBackColor = true;
+            this.addRouteButton.Click += new System.EventHandler(this.addRouteButton_Click);
+            // 
+            // form1BindingSource
+            // 
+            this.form1BindingSource.DataSource = typeof(MapEditor.Form1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1486, 861);
+            this.Controls.Add(this.addRouteButton);
             this.Controls.Add(this.statusChangeButton);
             this.Controls.Add(this.changePanel);
             this.Controls.Add(this.statusLabelPanel);
@@ -202,6 +214,8 @@
         private System.Windows.Forms.NumericUpDown hp;
         private System.Windows.Forms.Panel statusLabelPanel;
         private System.Windows.Forms.Button statusChangeButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addRouteButton;
     }
 }
 

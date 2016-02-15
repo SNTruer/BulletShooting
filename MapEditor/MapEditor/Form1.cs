@@ -102,6 +102,11 @@ namespace MapEditor
             Enemy.statusChange(statusLabelPanel, changePanel);
         }
 
+        private void addRouteButton_Click(object sender, EventArgs e)
+        {
+            Enemy.nowEnemyAddRoutePoint(enemyPanel);
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
